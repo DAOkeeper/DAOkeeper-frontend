@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Parachute</title>
+        <title>DAOKeeper</title>
         <meta name="description" content="Shooting Star" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
