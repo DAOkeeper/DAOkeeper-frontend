@@ -77,8 +77,8 @@ function CardSpace(props: CardSpaceProps) {
   };
 
   return (
-    <div key={index} className="card shadow-xl bg-[#191919]" {...propsRest}>
-      <div className="card-body items-center text-center mb-2">
+    <div key={index} className="card shadow-xl bg-[#]" {...propsRest}>
+      <div className="card-body items-center text-center pb-7 border-1.5 text-black border-black border-solid rounded-[inherit] bg-[#f9f7f7]">
         <img
           src={image}
           className="w-24 min-w-24 min-h-24 h-24 rounded-full object-cover"
@@ -87,7 +87,10 @@ function CardSpace(props: CardSpaceProps) {
         <h2 className="card-title">{spaceName}</h2>
         <p>{intro}</p>
         <div className="card-actions justify-center mt-2">
-          <button className="btn btn-warning" onClick={handleClick}>
+          <button
+            className="btn btn-warning bg-black text-white border-0 hover:bg-[#4a56ff]"
+            onClick={handleClick}
+          >
             Join
           </button>
         </div>

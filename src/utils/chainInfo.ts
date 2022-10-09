@@ -80,14 +80,14 @@ const chainInfo = (
 };
 
 const networkInfo = {
-  'evmos_9001-1': chainInfo(
-    'evmos_9001-1',
-    'Evmos Mainnet',
-    'https://grpc.bd.evmos.org:9090',
-    'https://rest.bd.evmos.org:1317',
-    'evmos',
-    'uevmos',
-    6,
+  klaytn_1001: chainInfo(
+    'klaytn_1001',
+    'Klaytn Testnet',
+    'https://api.baobab.klaytn.net:8651',
+    'https://baobab.wallet.klaytn.com/',
+    'KLAY',
+    'peb',
+    18,
     'wasm',
   ),
 };

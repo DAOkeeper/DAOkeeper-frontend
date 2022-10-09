@@ -26,6 +26,8 @@ function Navbar() {
   const handleWalletClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const targetId = e.currentTarget.id as walletIdType;
     const address = await communicateWithWallet(targetId);
+    console.log(address);
+
     setOwnerAddress(address);
   };
 
@@ -38,7 +40,7 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar bg-[#000]">
+    <div className="navbar">
       <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl" onClick={handleClick}>
           <Logo className="h-full pt-1.5" />
@@ -47,13 +49,19 @@ function Navbar() {
 
       {ownerAddress ? (
         <>
-          <button className="btn btn-sm" onClick={handleConnect}>
+          <button
+            className="btn btn-sm  bg-white text-black hover:bg-[#4a56ff]"
+            onClick={handleConnect}
+          >
             {ownerAddressShort}...{ownerAddressShort2}
           </button>
         </>
       ) : (
         <div className="flex-none">
-          <label htmlFor="my-modal-4" className="btn btn-sm modal-button">
+          <label
+            htmlFor="my-modal-4"
+            className="btn modal-button bg-[#484752] text-white hover:bg-[#4a56ff]"
+          >
             Connect Wallet
           </label>
 
@@ -76,15 +84,13 @@ function Navbar() {
                   className="btn btn-block "
                   onClick={handleWalletClick}
                   type="button"
-                  id="keplr"
+                  id="kaikas"
                 >
-                  Keplr Wallet
+                  Kaikas Wallet
                 </button>
               </div>
             </label>
           </label>
-
-          {/* <TestEvmos ownerAddress={ownerAddress} /> */}
         </div>
       )}
     </div>

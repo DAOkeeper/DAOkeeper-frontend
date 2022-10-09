@@ -33,7 +33,7 @@ const Resolved = () => {
   });
 
   useEffect(() => {
-    console.log('CArd space list ====>', data);
+    console.log('Card space list ====>', data);
   }, []);
 
   return (
