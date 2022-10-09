@@ -1,7 +1,6 @@
 import Add from '@src/assets/Icon/add.svg';
 import Navbar from '@src/components/common/Navbar';
-import CardSpace from '@src/components/main/CardSpace';
-import CardSpcaeList from '@src/components/Main/CardSpcaeList';
+import CardSpaceList from '@src/components/Main/CardSpaceList';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -38,7 +37,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className="grid grid-cols-3 gap-4 pb-8">
-          <CardSpcaeList />
+          <CardSpaceList />
         </div>
       </div>
     </>

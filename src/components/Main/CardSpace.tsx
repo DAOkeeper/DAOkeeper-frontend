@@ -88,7 +88,7 @@ function CardSpace(props: CardSpaceProps) {
         <p>{intro}</p>
         <div className="card-actions justify-center mt-2">
           <button
-            className="btn btn-warning bg-black text-white border-0 hover:bg-[#4a56ff]"
+            className="!bg-black btn btn-warning  text-white border-0 hover:!bg-[#4a56ff]"
             onClick={handleClick}
           >
             Join

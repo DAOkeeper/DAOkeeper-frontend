@@ -53,7 +53,8 @@ const StyledButton = styled.button<{ isAbled: boolean }>`
 
   text-align: center;
   text-transform: capitalize;
-  background: #fcff70;
+  background: black !important;
+  color: white !important;
 
   ${({ isAbled }) =>
     isAbled

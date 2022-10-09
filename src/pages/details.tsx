@@ -1,13 +1,14 @@
 import Navbar from '@src/components/common/Navbar';
 import NextBtn from '@src/components/common/NextBtn';
-import { airdropAbi, daoAbi } from '@src/lib/abi';
+import { JSONRPC_PROVIDER } from '@src/constants';
+import { airdropAbi, daoAbi } from '@src/lib/infoStoreAbi';
 import dayjs from 'dayjs';
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 const ethers = require('ethers');
 
 const Details: NextPage = () => {
-  const provider = new ethers.providers.JsonRpcProvider('https://eth.bd.evmos.dev:8545'); // EVMOS
+  const provider = new ethers.providers.JsonRpcProvider(JSONRPC_PROVIDER);
   // const provider = ethers.providers.getDefaultProvider('goerli');
   const contractInfo = JSON.parse(localStorage.getItem('clickedCardInfo') as string);
   const governanceTokenAddress = contractInfo.governanceToken.contractAddress;
@@ -74,7 +75,7 @@ const Details: NextPage = () => {
   }, []);
 
   const daoDetails = {
-    ticker: 'TELE', // TODO: contract doesn't have the function to release this
+    ticker: 'KLAY', // TODO: contract doesn't have the function to release this
     DAOName,
     intro,
     image,
@@ -203,7 +204,7 @@ const Details: NextPage = () => {
                     )} */}
               </div>
 
-              <div className="bg-[#191919] p-8 mb-3 rounded-lg">
+              <div className="bg-[#F9F7F7] p-8 mb-3 rounded-lg">
                 {/* {amounts.map((amount, index) => {
                     return (
                     <>
@@ -238,7 +239,7 @@ const Details: NextPage = () => {
                     }}
                   />
                   <div className="mb-4">
-                    <div className="bg-[#191919] p-8 rounded-lg">
+                    <div className="bg-[#F9F7F7] p-8 rounded-lg">
                       {airdropDetails.map((airdrop, index) => (
                         // eslint-disable-next-line react/jsx-key
                         <div className="mb-4">

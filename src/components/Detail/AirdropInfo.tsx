@@ -163,7 +163,7 @@ function Resolved() {
               <h2 className="font-bold text-2xl mt-8 mb-8 mr-4">{airBalance} TEL</h2>
               <div>
                 <NextBtn
-                  className="max-w-[100px] max-h-8"
+                  className="max-w-[100px] max-h-8 hover:!bg-[#4a56ff]"
                   onClick={() => {
                     router.push({
                       pathname: '/claim_token',
@@ -193,7 +193,7 @@ function Resolved() {
             )} */}
         </div>
 
-        <div className="bg-[#191919] p-8 mb-3 rounded-lg">
+        <div className="bg-[#F9F7F7] p-8 mb-3 rounded-lg">
           {/* {amounts.map((amount, index) => {
               return (
                 <>
@@ -220,7 +220,7 @@ function Resolved() {
             <div
               className="rounded-full"
               style={{
-                backgroundColor: '#FFE55C',
+                backgroundColor: 'black',
                 height: '16px',
                 width: `${(airBalance / total) * 100}%`,
               }}
@@ -228,7 +228,7 @@ function Resolved() {
           </>
         </div>
 
-        <div className="bg-[#191919] p-8 rounded-lg">
+        <div className="bg-[#F9F7F7] p-8 rounded-lg">
           {airdropDetails.map((airdrop, index) => (
             <div className="mb-4">
               <span className="opacity-50 w-40 inline-block">{airdrop.label}</span>

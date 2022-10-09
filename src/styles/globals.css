@@ -24,7 +24,16 @@ a {
 
 /* index.scss */
 :root {
-  --color-primary: #ffe55c;
+  --color-primary: #3c4efe;
+}
+
+.btn-warning {
+  background-color: #788df5;
+  border: 0px;
+}
+
+.label-text {
+  color: black;
 }
 
 /* Chrome, Safari, Edge, Opera */

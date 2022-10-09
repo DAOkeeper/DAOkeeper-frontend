@@ -8,7 +8,7 @@ import ErrorBoundary from '../common/ErrorBoundary';
 import SSRSafeSuspense from '../common/SSRSafeSuspense';
 import CardSpace from './CardSpace';
 
-function CardSpcaeList() {
+function CardSpaceList() {
   return (
     <ErrorBoundary
       renderFallback={({ error, reset }) => <CommonError error={error} reset={reset} />}
@@ -59,4 +59,4 @@ const Resolved = () => {
   );
 };
 
-export default CardSpcaeList;
+export default CardSpaceList;

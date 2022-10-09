@@ -1,3 +1,4 @@
+import { ClassNames } from '@emotion/react';
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
@@ -7,11 +8,11 @@ function SpaceDetail() {
   const { register } = useFormContext();
 
   return (
-    <>
+    <div className="text-black">
       <UploadImage />
       <div className="form-control w-full mt-[80px]">
         <label className="label w-full" htmlFor="space_name">
-          <span className="label-text w-full decoration-white">Name</span>
+          <span className="label-text w-full">Name</span>
         </label>
         <input
           type="text"
@@ -41,7 +42,7 @@ function SpaceDetail() {
           {...register('homepage')}
         />
       </div>
-    </>
+    </div>
   );
 }
 

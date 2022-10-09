@@ -1,8 +1,8 @@
-export const airdropAbi = [
+export const abi = [
   {
     inputs: [
       {
-        internalType: 'address',
+        internalType: 'contract DAOkeeperToken',
         name: '_tokenAddress',
         type: 'address',
       },
@@ -37,8 +37,8 @@ export const airdropAbi = [
         type: 'uint256',
       },
       {
-        internalType: 'address',
-        name: 'ContractInfoStoreAddr',
+        internalType: 'contract ContractInfoStore',
+        name: '_contractInfoStoreAddress',
         type: 'address',
       },
     ],
@@ -163,6 +163,25 @@ export const airdropAbi = [
         type: 'uint16',
       },
     ],
+    name: 'checkClaimmableAmount',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint16',
+        name: '_roundNumber',
+        type: 'uint16',
+      },
+    ],
     name: 'claimAirdrop',
     outputs: [],
     stateMutability: 'payable',
@@ -240,6 +259,30 @@ export const airdropAbi = [
       },
     ],
     name: 'getCalculatedAirdropAmountPerRoundByAddress',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint16',
+        name: '_round',
+        type: 'uint16',
+      },
+      {
+        internalType: 'address',
+        name: '_address',
+        type: 'address',
+      },
+    ],
+    name: 'getCalculatedAirdropScoreRatioPerRoundByAddress',
     outputs: [
       {
         internalType: 'uint256',
@@ -435,10 +478,10 @@ export const airdropAbi = [
   },
   {
     inputs: [],
-    name: 'tokenAddress',
+    name: 'token',
     outputs: [
       {
-        internalType: 'address',
+        internalType: 'contract DAOkeeperToken',
         name: '',
         type: 'address',
       },

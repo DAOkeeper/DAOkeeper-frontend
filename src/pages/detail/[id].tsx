@@ -1,5 +1,4 @@
 import Navbar from '@src/components/common/Navbar';
-import AirdropNav from '@src/components/Detail/AirdropNav';
 import AirdropResult from '@src/components/Detail/AirdropResult';
 import DaoProfile from '@src/components/Detail/DaoProfile';
 import DetailPortfolio from '@src/components/Detail/DetailPortfolio';
@@ -26,14 +25,7 @@ function AirdropDetail() {
           <>
             {/* 프로필 영역 */}
             <DaoProfile daoDetails={daoDetails} />
-            <AirdropNav currentTab={currentTab} setCurrentTab={setCurrentTab} />
-            {currentTab === 'Airdrop' ? (
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              <AirdropResult />
-            ) : (
-              <DetailPortfolio />
-            )}
+            <AirdropResult />
           </>
         )}
       </section>

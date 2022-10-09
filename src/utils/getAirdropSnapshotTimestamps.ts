@@ -1,10 +1,10 @@
-import { airdropAbi } from '@src/utils/airdropAbi';
+import { JSONRPC_PROVIDER } from '@src/constants';
+import { abi } from '@src/lib/airdropAbi';
 import { ethers } from 'ethers';
 
 export const getAirdropSnapshotTimestamps = async (airdropAddress: string) => {
-  // const provider = ethers.providers.getDefaultProvider('goerli');
-  const provider = new ethers.providers.JsonRpcProvider('https://eth.bd.evmos.dev:8545');
-  const AirdropContract = new ethers.Contract(airdropAddress, airdropAbi, provider);
+  const provider = new ethers.providers.JsonRpcProvider(JSONRPC_PROVIDER);
+  const AirdropContract = new ethers.Contract(airdropAddress, abi, provider);
 
   // return await AirdropContract.getAirdropSnapshotTimestamps();
 

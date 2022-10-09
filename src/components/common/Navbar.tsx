@@ -1,7 +1,6 @@
 import { MetaMaskInpageProvider } from '@metamask/providers';
 import Logo from '@src/assets/logo.svg';
 import useMounted from '@src/hooks/useMounted';
-// import TestEvmos from '@src/components/main/TestEvmos';
 import { communicateWithWallet, isLogout, walletIdType } from '@src/utils/connectWallet';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';

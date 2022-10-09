@@ -28,7 +28,7 @@ const StartAirdrop = ({ setStep, airdropContractDeploy }: StartAirdropProps) => 
       <SSRSafeSuspense
         fallback={
           <div className="w-[512px] h-[130px] bg-[#ffffff1a] rounded-[20px] flex flex-col justify-center items-center ml-[24px]">
-            <ClipLoader size={50} color={'#FCFF70'} />
+            <ClipLoader size={50} color={'#3C4EFE'} />
           </div>
         }
       >
