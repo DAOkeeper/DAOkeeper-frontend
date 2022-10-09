@@ -1,6 +1,6 @@
 import { JSONRPC_PROVIDER } from '@src/constants';
+import { abi } from '@src/lib/airdropAbi';
 import { postAirdropInfo } from '@src/lib/api';
-import { airdropAbi } from '@src/lib/infoStoreAbi';
 import { postAirdropInfoInfoParams } from '@src/types';
 import { useMutation } from '@tanstack/react-query';
 import { ethers } from 'ethers';
@@ -39,13 +39,10 @@ const useMintingToken = ({
         localStorage.setItem('airdropInfo', JSON.stringify(data));
         try {
           const provider = new ethers.providers.JsonRpcProvider(JSONRPC_PROVIDER);
-          const signer = new ethers.Wallet(
-            'd8f5d2f82fcceb4f7564364d25b23fc9fca1ad48d2570aceb376f738cf4b970c',
-            provider,
-          );
+          const signer = new ethers.Wallet(owner, provider);
           const airdropContract = new ethers.Contract(
             data?.airdropContract.contractAddress,
-            airdropAbi,
+            abi,
             signer,
           );
 

@@ -1,3 +1,4 @@
+import { airdropContractAddress } from '@src/constants';
 import useMounted from '@src/hooks/useMounted';
 import { findAllEligibleAirdroppedTokenByUser } from '@src/utils/findAllEligibleAirdroppedTokenByUser';
 import { getAirdropAmountsPerRound } from '@src/utils/getAirdropAmounts';
@@ -34,9 +35,9 @@ function Resolved() {
   const isMounted = useMounted();
 
   const router = useRouter();
+  const { isAirdropContractOpened, airdropTokenAddress, tokenSupply } = router?.query;
 
-  const { isAirdropContractOpened, airdropTokenAddress, governanceToken, tokenSupply } =
-    router?.query;
+  console.log(isAirdropContractOpened, airdropTokenAddress, tokenSupply);
   const userAddress = isMounted && localStorage?.getItem('ownerAddress');
   const [userEligibleTokenList, setUserEligibleTokenList] = useState();
 
@@ -59,12 +60,12 @@ function Resolved() {
   const getData = async () => {
     // airdropTokenAddress
     const zeroAddr = '0x0000000000000000000000000000000000000000';
-    const sample = '0xF76cb57df586D9DdEb2BB20652CF633417887Ca3';
+    const sample = airdropContractAddress;
 
     if (airdropTokenAddress === zeroAddr) {
       airdropTokenAddress = sample;
     }
-
+    console.log('airdropTokenAddress', airdropTokenAddress);
     const airdropTimestamps = await getAirdropSnapshotTimestamps(airdropTokenAddress);
     const airdropAmountsPerRound = await getAirdropAmountsPerRound(airdropTokenAddress);
     const airdropWhiteList = await getAirdropTargetAddresses(airdropTokenAddress);
@@ -144,7 +145,10 @@ function Resolved() {
   const airdropDetails = [
     { label: 'Start Date', value: airdrop_timestamps[0] },
     { label: 'Rounds', value: airdrop_timestamps.length },
-    { label: 'Interval', value: date1.diff(date2, 'day') + ' Days' },
+    {
+      label: 'Interval',
+      value: (date1.diff(date2, 'day') ? date1.diff(date2, 'day') : '10') + ' Days',
+    },
   ];
 
   return (
@@ -156,11 +160,10 @@ function Resolved() {
           </div>
           <div className="flex-none">
             <div className="flex items-center">
-              {/* <div>
-                <span>100.00</span>
-                <span> TEL</span>
-              </div>{' '} */}
-              <h2 className="font-bold text-2xl mt-8 mb-8 mr-4">{airBalance} TEL</h2>
+              <h2 className="font-bold text-2xl mt-8 mb-8 mr-4">
+                {airBalance}
+                {router.query.tokenSymbol ? router.query.tokenSymbol : 'TOK'}
+              </h2>
               <div>
                 <NextBtn
                   className="max-w-[100px] max-h-8 hover:!bg-[#4a56ff]"

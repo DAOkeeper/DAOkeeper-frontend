@@ -16,10 +16,14 @@ import Title from '../CreateSpace/Title';
 
 interface StartAirdropProps {
   setStep: React.Dispatch<React.SetStateAction<AirdropStep>>;
+}
+
+interface ResolvedProps {
+  setStep: React.Dispatch<React.SetStateAction<AirdropStep>>;
   airdropContractDeploy: any;
 }
 
-const StartAirdrop = ({ setStep, airdropContractDeploy }: StartAirdropProps) => {
+const StartAirdrop = ({ setStep }: StartAirdropProps) => {
   return (
     <ErrorBoundary
       renderFallback={({ error, reset }) => <CommonError error={error} reset={reset} />}
@@ -38,16 +42,17 @@ const StartAirdrop = ({ setStep, airdropContractDeploy }: StartAirdropProps) => 
   );
 };
 
-function Resolved({ setStep, airdropContractDeploy }: StartAirdropProps) {
+function Resolved({ setStep, airdropContractDeploy }: ResolvedProps) {
   const { getValues } = useFormContext();
 
   const currentValue = getValues();
-  // const { data } = useQuery(['airdropToken'], () => airdropContractDeploy({ ...currentValue }), {
-  //   suspense: true,
-  // });
-  // useEffect(() => {
-  //   console.log('data', data);
-  // }, [data]);
+  const { data } = useQuery(['airdropToken'], () => airdropContractDeploy({ ...currentValue }), {
+    suspense: true,
+  });
+
+  useEffect(() => {
+    console.log('data', data);
+  }, [data]);
   const router = useRouter();
   const handleHomeClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();

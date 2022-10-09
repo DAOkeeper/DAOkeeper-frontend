@@ -21,7 +21,7 @@ function EnterDetailAirdrop() {
       </label>
       <input
         type="text"
-        placeholder="dd/mm/yy"
+        placeholder="mm/dd/yy"
         className="input input-bordered w-full bg-[#ffffff1a] mb-[20px]"
         id="space_homepace"
         {...register('startDate')}
